@@ -1,0 +1,42 @@
+.cur_p {
+  cursor: pointer!important;
+}
+.cur_d {
+  cursor: default!important;
+}
+.dis_ib {
+  display: inline-block!important;
+}
+.dis_n {
+  display: none!important;
+}
+.dis_fl {
+  display: flex;
+}
+.dis_fl_ac {
+  display: flex;
+  align-items: center;
+}
+.dis_fl_c {
+  display: flex;
+  justify-content: center;
+}
+.dis_dr_c {
+  display: flex;
+  flex-direction: column;
+}
+.pos_center {
+  position: relative;
+  display: inline-block;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+.ellipsis {
+  overflow: hidden;//溢出隐藏
+  white-space: nowrap;//禁止换行
+  text-overflow: ellipsis;
+}
+.user_n {
+  user-select: none;
+}
