@@ -26,6 +26,7 @@ const ForkTsCheckerWebpackPlugin =
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const webpackBar = require('webpackbar')
 const createEnvironmentHash = require('./webpack/persistentCache/createEnvironmentHash');
+const pkg = require('../package.json');
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
@@ -586,8 +587,8 @@ module.exports = function (webpackEnv) {
         new MiniCssExtractPlugin({
           // Options similar to the same options in webpackOptions.output
           // both options are optional
-          filename: '[name]/[name].[contenthash:8].css',
-          chunkFilename: '[name]/[name].[contenthash:8].chunk.css',
+          filename: `[name]/[name].[contenthash:8]_${pkg.version}.css`,
+          chunkFilename: `[name]/[name].[contenthash:8].chunk_${pkg.version}.css`,
         }),
       // Generate an asset manifest file with the following content:
       // - "files" key: Mapping of all asset filenames to their corresponding

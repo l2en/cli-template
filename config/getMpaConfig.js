@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const getPublicUrlOrPath = require('react-dev-utils/getPublicUrlOrPath');
 const paths = require('./paths');
 const appDirectory = fs.realpathSync(process.cwd());
-
+const pkg = require('../package.json');
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
 function makeMultiConfig(webpackEnv) {
@@ -64,11 +64,11 @@ function makeMultiConfig(webpackEnv) {
       path: paths.appBuild,
       pathinfo: isEnvDevelopment,
       filename: isEnvProduction
-        ? '[name]/[name].[contenthash:8].js'
+        ? `[name]/[name].[contenthash:8]_${pkg.version}.js`
         : isEnvDevelopment && '[name]/[name]-bundle.js',
 
       chunkFilename: isEnvProduction
-        ? '[name]/[name].[contenthash:8].chunk.js'
+        ? `[name]/[name].[contenthash:8].chunk_${pkg.version}.js`
         : isEnvDevelopment && '[name]/[name].chunk.js',
 
       // assetModuleFilename: '[name]/media/[name].[hash][ext]',
