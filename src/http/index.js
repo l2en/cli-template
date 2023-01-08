@@ -11,7 +11,7 @@
    BASE_URL_UAT,
    BASE_URL_PROD,
    ERROR_TYPE
- } from './constants';
+ } from '@/constants/server.config';
  
  
  const isDev = process.env.NODE_ENV === "development";

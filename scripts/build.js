@@ -33,7 +33,11 @@ const printFileSizesAfterBuild = FileSizeReporter.printFileSizesAfterBuild;
 const useYarn = fs.existsSync(paths.yarnLockFile);
 
 // delete build assets(dist/**/*)
-fs.rmdirSync('dist',{recursive: true});
+try {
+  fs.rmdirSync('dist',{recursive: true});
+} catch(err) {
+  console.log('node移除dist文件夹不存在或失败', err)
+}
 
 // These sizes are pretty large. We'll warn for bundles exceeding them.
 const WARN_AFTER_BUNDLE_GZIP_SIZE = 512 * 1024;

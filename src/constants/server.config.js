@@ -4,7 +4,7 @@
  * ORDER: https://buy.lenovouat.com/ || https://buy.lenovo.com.cn/
  * MEMBER: https://b.lenovouat.com/.. || https://b.lenovo.com.cn/
  */
-const SERVER_MAP = {
+ const SERVER_MAP = {
   order: "ORDER_API", // 订单服务
   member: "MEMBER_API" // 会员服务
 };

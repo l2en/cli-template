@@ -30,6 +30,7 @@ const util = {
       }
     }
   },
+  // 获取地址栏参数
   getParams: () => {
     if (window && window.location) {
       const paramsify = window.location.search;

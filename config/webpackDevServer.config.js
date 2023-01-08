@@ -7,7 +7,7 @@ const ignoredFiles = require('react-dev-utils/ignoredFiles');
 const redirectServedPath = require('react-dev-utils/redirectServedPathMiddleware');
 const paths = require('./paths');
 const getHttpsConfig = require('./getHttpsConfig');
-
+const proxy = require('./dev.proxy.config');
 
 const host = process.env.HOST || '0.0.0.0';
 const sockHost = process.env.WDS_SOCKET_HOST;
@@ -99,29 +99,7 @@ module.exports ={
       index: paths.publicUrlOrPath,
     },
     // `proxy` is run between `before` and `after` `webpack-dev-server` hooks
-    proxy: {
-      // 订单服务
-      "/ORDER_API": {
-        target: 'https://buy.lenovouat.com/', // uat - 暂用pc接口测试
-        // target: 'https://mbuy.lenovouat.com/', // uat
-        // target: 'https://mbuy.lenovo.com.cn/', // prod
-        pathRewrite: {
-          "^/ORDER_API": ""
-        },
-        secure: false,
-        changeOrigin: true
-      },
-      // 会员服务
-      "/MEMBER_API": {
-        target: 'https://i.lenovouat.com/', // uat
-        // target: 'https://i.lenovo.com.cn/', // prod
-        pathRewrite: {
-          "^/MEMBER_API": ""
-        },
-        secure: false,
-        changeOrigin: true
-      }
-    },
+    proxy,
     onBeforeSetupMiddleware(devServer) {
       // Keep `evalSourceMapMiddleware`
       // middlewares before `redirectServedPath` otherwise will not have any effect
